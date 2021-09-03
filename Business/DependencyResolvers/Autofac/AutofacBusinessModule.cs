@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using Business.ReportOps;
+using Business.ReportStatusOps;
 using DataAccess.EntityFramework.ReportDal;
+using DataAccess.EntityFramework.ReportStatusDal;
 
 namespace Business.DependencyResolvers.Autofac
 {
@@ -11,10 +13,12 @@ namespace Business.DependencyResolvers.Autofac
 
             #region DataAccessLayers
             builder.RegisterType<EfReportDal>().As<IReportDal>().SingleInstance();
+            builder.RegisterType<EfReportStatusDal>().As<IReportStatusDal>().SingleInstance();
             #endregion
 
             #region BusinessLayer
             builder.RegisterType<ReportService>().As<IReportService>().SingleInstance();
+            builder.RegisterType<ReportStatusService>().As<IReportStatusService>().SingleInstance();
             #endregion
         }
     }

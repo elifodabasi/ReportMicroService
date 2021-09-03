@@ -12,12 +12,14 @@ namespace Entities
     {
         public Report()
         {
-            ReportStatuses = new Collection<ReportStatus>();
+           // ReportStatuses = new Collection<ReportStatus>();
         }
 
         public Guid Id { get; set; }
         public DateTime ReportDemandDate { get; set; }
         public int ReportStatusId { get; set; }
-        public ICollection<ReportStatus> ReportStatuses { get; set; }
+
+        public virtual ReportStatus ReportStatus { get; set; }
+        //public ICollection<ReportStatus> ReportStatuses { get; set; }
     }
 }

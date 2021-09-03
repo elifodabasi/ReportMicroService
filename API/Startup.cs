@@ -1,6 +1,7 @@
 using DataAccess.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +37,8 @@ namespace API
                    options.UseNpgsql(Configuration["ConnectionStrings:Default"].ToString(), o => o.MigrationsAssembly("DataAccess"));
                }
                );
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });

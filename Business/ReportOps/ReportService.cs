@@ -43,7 +43,7 @@ namespace Business.ReportOps
         public void Update(Report entity)
         {
             var report = _reportDal.Find(x => x.Id == entity.Id);
-            if(report != null)
+            if (report != null)
             {
                 report.ReportStatusId = 2;
                 report.ReportDemandDate = DateTime.Now;
@@ -70,10 +70,13 @@ namespace Business.ReportOps
             var locationReport = _reportDal.GetAll().ToList();
 
 
+
             foreach (var item in contactInfo)
             {
                 foreach (var item1 in locationReport)
                 {
+                    Update(item1);
+
                     if (item.Id == item1.ContactInfoId)
                     {
                         reportLocationCustom.Count = locationReport.Count;

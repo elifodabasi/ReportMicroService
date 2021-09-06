@@ -19,7 +19,9 @@ namespace Entities
         public DateTime ReportDemandDate { get; set; }
         public int ReportStatusId { get; set; }
 
+        public Guid ContactInfoId { get; set; }
         public virtual ReportStatus ReportStatus { get; set; }
+        public virtual ContactInfo ContactInfo { get; set; }
         //public ICollection<ReportStatus> ReportStatuses { get; set; }
     }
 }

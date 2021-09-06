@@ -29,6 +29,8 @@ namespace DataAccess.EntityFramework
 
         public DbSet<Report> Reports;
         public DbSet<ReportStatus> ReportStatuses;
+        public DbSet<Person> Persons;
+        public DbSet<ContactInfo> ContactInfos;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,11 +38,15 @@ namespace DataAccess.EntityFramework
             #region ApplyEntiyConfiguration
             modelBuilder.ApplyConfiguration(new ReportConfiguration());
             modelBuilder.ApplyConfiguration(new ReportStatusConfiguration());
+            modelBuilder.ApplyConfiguration(new ContactInfoConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonConfiguration());
             #endregion
 
             #region ApplyEntitySeed
             modelBuilder.ApplyConfiguration(new ReportSeed(new Guid[] { new Guid("e98a2570-92e7-435e-a289-e5702987fa8e") }));
             modelBuilder.ApplyConfiguration(new ReportStatusSeed());
+            modelBuilder.ApplyConfiguration(new PersonSeed(new Guid[] { new Guid("e98a2570-92e7-435e-a289-e5702987fa8e") }));
+            modelBuilder.ApplyConfiguration(new ContactInfoSeed(new Guid[] { new Guid("e98a2570-92e7-435e-a289-e5702987fa8e") }));
             #endregion
         }
     }

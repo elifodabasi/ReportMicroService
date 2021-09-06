@@ -26,7 +26,9 @@ namespace DataAccess.Seeds
           {
               Id = _Ids[0],
               ReportDemandDate = DateTime.Now,
-              ReportStatusId = 1
+              ReportStatusId = 1,
+              ContactInfoId = _Ids[0],
+
 
           }
          ) ;

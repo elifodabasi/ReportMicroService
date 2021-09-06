@@ -20,16 +20,38 @@ namespace API.Controllers
         }
 
         [HttpGet("getAll")]
-        public async Task<List<Report>> GetAll()
+        public async Task<List<Report>> GetAllReport()
         {
             var result = _reportService.GetAll().ToList();
             return result;
         }
 
         [HttpGet("find")]
-        public Report Find(Guid id)
+        public Report FindReport(Guid id)
         {
             return _reportService.Find(id);
         }
+
+        [HttpPost("add")]
+        public async Task AddReport(Report report)
+        {
+          
+            _reportService.Add(report);
+        }
+
+        [HttpPost("update")]
+        public async Task UpdateReport(Report report)
+        {
+            
+            _reportService.Update(report);
+        }
+
+        [HttpPost("getReportForLocation")]
+        public async Task GetReportLocation(string locationName)
+        {
+
+            _reportService.GetReportForLocation(locationName);
+        }
+
     }
 }
